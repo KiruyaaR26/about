@@ -89,3 +89,78 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.innerWidth >= 768) setMenuState(false);
     });
 });
+
+// language switcher (EN <-> ID)
+document.addEventListener("DOMContentLoaded", () => {
+    const langBtn = document.getElementById("lang-toggle");
+    if (!langBtn) return;
+
+    const LANG_KEY = "radova-lang";
+    const ID_TEXT = {
+        "skip": "Langsung ke konten",
+        "nav.packages": "Paket",
+        "nav.wiki": "Wiki",
+        "nav.learning": "Belajar",
+        "nav.events": "Acara",
+        "nav.latest": "Terbaru",
+        "nav.about": "Tentang",
+        "nav.history": "Sejarah",
+        "nav.contact": "Kontak",
+        "nav.back": "Kembali",
+        "about.eyebrow": "Tentang Radova",
+        "about.title1": "Di mana ada shell,",
+        "about.title2": "di situ ada jalan",
+        "history.eyebrow": "Sejarah",
+        "history.title1": "Dari satu ide",
+        "history.title2": "menjadi satu sistem.",
+        "history.sub": "Bagaimana Radova Linux tumbuh dari proyek pribadi di tahun 2019 menjadi satu sistem di tahun 2026.",
+        "contact.eyebrow": "Hubungi Kami",
+        "footer.col1": "Tentang Radova",
+        "footer.col2": "Sumber Daya",
+        "footer.col3": "Pilar Utama",
+        "footer.col4": "Bantuan & Spesifikasi",
+        "footer.download": "Unduh ISO",
+        "footer.specs": "Kebutuhan Sistem",
+        "footer.security": "Info Keamanan",
+        "footer.copy": "© 2026 yuros.org · Dirilis di bawah Lisensi MIT",
+        "footer.top": "Ke atas ↑"
+    };
+
+    const nodes = document.querySelectorAll("[data-i18n], [data-i18n-prefix]");
+    const enList = Array.from(nodes, (node) =>
+        node.hasAttribute("data-i18n")
+            ? node.textContent
+            : (node.firstChild ? node.firstChild.nodeValue : "")
+    );
+
+    const applyLang = (lang) => {
+        nodes.forEach((el, i) => {
+            if (el.hasAttribute("data-i18n")) {
+                const key = el.getAttribute("data-i18n");
+                el.textContent = lang === "id" && ID_TEXT[key] != null ? ID_TEXT[key] : enList[i];
+            } else if (el.firstChild) {
+                const pkey = el.getAttribute("data-i18n-prefix");
+                el.firstChild.nodeValue = lang === "id" && ID_TEXT[pkey] != null ? ID_TEXT[pkey] + " " : enList[i];
+            }
+        });
+        document.documentElement.lang = lang;
+        langBtn.textContent = lang.toUpperCase();
+        langBtn.setAttribute("aria-label", lang === "id" ? "Switch language to English" : "Switch language to Indonesian");
+    };
+
+    let currentLang = "en";
+    try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === "id" || saved === "en") currentLang = saved;
+    } catch (_) {}
+
+    if (currentLang !== "en") applyLang(currentLang);
+
+    langBtn.addEventListener("click", () => {
+        currentLang = currentLang === "en" ? "id" : "en";
+        applyLang(currentLang);
+        try {
+            localStorage.setItem(LANG_KEY, currentLang);
+        } catch (_) {}
+    });
+});

@@ -159,12 +159,18 @@
 :root[data-theme="dark"] .site-header .btn-navy.active {
   background-color: #0E0347;
   color: #FFFFFF;
-  border-color: #DB000F;
+  border-color: #0B0711;
+}
+
+:root[data-theme="dark"] .dropdown-content {
+  background-color: #150B52;
+  border-color: rgba(196, 192, 212, 0.22);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 :root[data-theme="dark"] .dropdown-content a:hover,
 :root[data-theme="dark"] .dropdown-content button.d-content-back:hover {
-  background-color: #DB000F;
+  background-color: #0E0347;
   color: #FFFFFF;
 }
 
@@ -191,7 +197,7 @@
 }
 
 :root[data-theme="dark"] .hero-split-left h1 span {
-  color: #DB000F;
+  color: #FFFFFF;
 }
 
 :root[data-theme="dark"] .hero-lead,

@@ -1,23 +1,54 @@
-/* Custom styles for the tab menu */
+/* ==========================================================================
+   Contact Page Styles (Light & Dark Mode Matched 1:1 with Home Page)
+   ========================================================================== */
+
+.hero-split-left h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.6vw, 3.35rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--red-900);
+  margin: 0 0 1.5rem;
+  text-transform: capitalize;
+}
+
+.hero-split-left h1 span {
+  color: var(--red-600);
+}
+
+.contact-ledger {
+  margin-top: 2.25rem;
+}
+
+.contact-panel {
+  border-radius: 20px;
+}
+
+/* Tab Menu */
 .tab-nav {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--line);
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 0.5rem;
 }
 
 .tab-btn {
+  width: auto;
+  margin: 0;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: var(--muted);
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 10px !important;
+  font-size: 11px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 999px;
+  line-height: 1.2;
   transition: all 0.2s ease;
 }
 
@@ -32,41 +63,240 @@
 }
 
 /* Hide/Show logic for tab content */
-.tab-content { 
-  display: none; 
+.tab-content {
+  display: none;
 }
-.tab-content.active { 
-  display: block; 
-}
-/* Form Styling Refactoring from inline styles */
-form label {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
+
+.tab-content.active {
   display: block;
 }
 
-.form-input {
-  margin-top: 0.5rem;
-  background: var(--lavender);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  width: 100%;
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.4rem;
 }
 
-/* HTMX Loading Indicator Styles */
+.form-group-last {
+  margin-bottom: 1.85rem;
+}
+
+#contact-form label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+#contact-form .form-input {
+  margin: 0;
+  background: var(--lavender);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  width: 100%;
+  font-size: 15px;
+}
+
+#contact-form textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit-full {
+  width: 100%;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-inline: 1.5rem;
+}
+
+
+/* Loading Indicator */
 .htmx-indicator {
   display: none;
   margin-bottom: 1rem;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--red-600);
   text-align: center;
 }
+
 .htmx-request .htmx-indicator,
 .htmx-request.htmx-indicator {
   display: block;
+}
+
+/* ==========================================================================
+   Dark Mode Overrides (Overrides site.css?v=8 inverted --white variables)
+   ========================================================================== */
+
+/* 1. Background Hero & Halaman (#0B0711 + Crimson Glow seperti Home Page) */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] main {
+  background-color: #0B0711;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] #contact-hero.hero {
+  background:
+    radial-gradient(50% 45% at 30% 15%, rgba(219, 0, 15, 0.16), transparent 65%),
+    radial-gradient(40% 45% at 80% 25%, rgba(21, 11, 82, 0.35), transparent 70%),
+    #0B0711;
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+/* 2. Tombol ABOUT di Header (Biru Gelap #150B52, bukan putih) */
+:root[data-theme="dark"] .site-header .btn-navy {
+  background-color: #150B52;
+  color: #FFFFFF;
+  border: 1px solid rgba(196, 192, 212, 0.25);
+}
+
+:root[data-theme="dark"] .site-header .btn-navy:hover,
+:root[data-theme="dark"] .site-header .btn-navy.active {
+  background-color: #0E0347;
+  color: #FFFFFF;
+  border-color: #DB000F;
+}
+
+:root[data-theme="dark"] .dropdown-content a:hover,
+:root[data-theme="dark"] .dropdown-content button.d-content-back:hover {
+  background-color: #DB000F;
+  color: #FFFFFF;
+}
+
+/* 3. Spec Strip & Chip */
+:root[data-theme="dark"] #contact-hero .hero-spec-strip {
+  border-top-color: rgba(196, 192, 212, 0.16);
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+:root[data-theme="dark"] #contact-hero .hero-spec-strip::after {
+  color: #C4C0D4;
+}
+
+:root[data-theme="dark"] #contact-hero .hero-chip {
+  background-color: rgba(219, 0, 15, 0.14);
+  border-color: rgba(219, 0, 15, 0.35);
+  color: #F7F6FF;
+}
+
+/* 4. Teks Kolom Kiri & Ledger */
+:root[data-theme="dark"] .hero-split-left h1,
+:root[data-theme="dark"] .contact-ledger .ledger-item h3 {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .hero-split-left h1 span {
+  color: #DB000F;
+}
+
+:root[data-theme="dark"] .hero-lead,
+:root[data-theme="dark"] .contact-ledger .ledger-item p {
+  color: #C4C0D4;
+}
+
+:root[data-theme="dark"] .swiss-ledger {
+  border-top-color: rgba(196, 192, 212, 0.25);
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+:root[data-theme="dark"] .contact-ledger .ledger-item {
+  border-color: rgba(196, 192, 212, 0.16);
+}
+
+/* 5. Panel Form, Tab, Input & Bulatan Putih pada Tombol Send Transmission */
+
+:root[data-theme="dark"] .tab-nav {
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+:root[data-theme="dark"] .tab-btn {
+  color: #C4C0D4;
+}
+
+:root[data-theme="dark"] .tab-btn:hover {
+  background-color: #0E0347;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .tab-btn.active {
+  background-color: #DB000F;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] #contact-form label {
+  color: #F7F6FF;
+}
+
+:root[data-theme="dark"] #contact-form .form-input {
+  background-color: #0E0347;
+  border-color: rgba(196, 192, 212, 0.22);
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] #contact-form .form-input::placeholder {
+  color: rgba(196, 192, 212, 0.6);
+}
+
+:root[data-theme="dark"] #contact-form .form-input:focus {
+  background-color: #0B0711;
+  border-color: #DB000F;
+  box-shadow: 0 0 0 3px rgba(219, 0, 15, 0.25);
+}
+
+:root[data-theme="dark"] #contact-form .btn-arrow::after {
+  background-color: #FFFFFF;
+}
+
+/* 6. Judul Kolom Footer */
+:root[data-theme="dark"] .site-footer .footer-heading {
+  color: #FFFFFF;
+}
+
+.d-content-h:hover {
+  border-radius: 15px 15px 0 0 ;
+}
+
+.d-content-c:hover {
+  border-radius: 0 0 15px 15px;
+}
+/* Responsif Mobile: Susun vertikal agar teks utuh & mudah di-tap */
+@media (max-width: 480px) {
+  .tab-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: center;
+    padding-block: 0.7rem;
+  }
+}
+
+/* Menghilangkan blok biru gelap pada About, History, & Contact di mode mobile */
+@media (max-width: 767px) {
+  :root[data-theme="dark"] .header-menu .dropdown-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  :root[data-theme="dark"] .header-menu .dropdown-content a,
+  :root[data-theme="dark"] .header-menu .nav-list a {
+    background-color: transparent;
+    color: #FFFFFF;
+  }
+
+  :root[data-theme="dark"] .header-menu .dropdown-content a:hover,
+  :root[data-theme="dark"] .header-menu .dropdown-content a:focus,
+  :root[data-theme="dark"] .header-menu .nav-list a:hover,
+  :root[data-theme="dark"] .header-menu .nav-list a:focus {
+    background-color: rgba(219, 0, 15, 0.14);
+    color: #FFFFFF;
+  }
 }

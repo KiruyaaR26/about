@@ -6,22 +6,23 @@
   <meta name="color-scheme" content="light">
   <title>Contact — Radova Linux</title>
   <meta name="description" content="Get in touch with the Radova Linux team for support regarding institutional memory, archives, and digital asset sovereignty.">
-  <link rel="canonical" href="https://radova.org/contact">
-  <link rel="stylesheet" href="https://radova.org/about/assets/pico.min.css">
-  <link rel="stylesheet" href="https://radova.org/about/assets/site.css?v=8">
-  <link rel="stylesheet" href="https://radova.org/about/assets/contact.css">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <meta property="og:title" content="Contact — Radova Linux">
+  <meta property="og:description" content="Get in touch with the Radova Linux team for support regarding institutional memory, archives, and digital asset sovereignty.">
+  <link rel="canonical" href="https://radova.org/about/contact">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lato-latin-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-latin-wght.woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/pico.min.css">
+  <link rel="stylesheet" href="/assets/site.css?v=19">
+  <link rel="stylesheet" href="/assets/contact.css?v=2">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <meta name="htmx-config" content='{"allowEval":false,"allowScriptTags":false,"selfRequestsOnly":true,"includeIndicatorStyles":false}'>
 </head>
-<style>
-  .tab-btn {
-    font-size: 10px !important;
-  }
-</style>
 <body>
 
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
- <header class="site-header">
+  <header class="site-header">
     <a class="brand-lockup" href="https://radova.org/">
       <img src="/assets/logo.png" alt="Radova Logo" width="32">
       <span class="brand-name">RADOVA</span>
@@ -30,8 +31,8 @@
     <div id="primary-nav" class="header-menu">
       <nav aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a target="_blank" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
-          <li><a target="_blank" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
           <li><a href="https://radova.org/learns" data-i18n="nav.learning">Learning</a></li>
           <li><a href="https://radova.org/events" data-i18n="nav.events">Events</a></li>
           <li><a href="https://radova.org/latest/" data-i18n="nav.latest">Latest</a></li>
@@ -43,18 +44,17 @@
           <li class="dropdown">
             <a id="about-menu-btn" href="#" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</a>
             <div class="menu-arrow" aria-hidden="true"></div>
-            <div class="dropdown-content" role="menu" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
+            <div class="dropdown-content" role="menu">
               <a class="d-content-h" href="https://radova.org/about/" role="menuitem" data-i18n="nav.about">About</a>
               <a class="d-content-r" href="https://radova.org/about/history" role="menuitem" data-i18n="nav.history">History</a>
               <a class="d-content-c" href="https://radova.org/about/contact" role="menuitem" data-i18n="nav.contact">Contact</a>
-              <button type="button" class="d-content-back" role="menuitem" data-i18n="nav.back">Back</button>
             </div>
           </li>
         </ul>
       </nav>
     </div>
 
-    <button type="button" id="theme-toggle" class="btn-theme" data-set-theme="light" hx-get="assets/theme-dark.html" hx-target="#theme-toggle" hx-swap="outerHTML" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+    <button type="button" id="theme-toggle" class="btn-theme" data-set-theme="light" hx-get="/assets/theme-dark.html" hx-target="#theme-toggle" hx-swap="outerHTML" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
       <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M216.7 152.6A91.9 91.9 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3Z"/></svg>
     </button>
 
@@ -72,116 +72,106 @@
       <span></span>
     </button>
   </header>
+
   <main id="main" tabindex="-1">
 
-    <section id="contact-hero" class="hero" data-label="GET IN TOUCH" aria-labelledby="contact-title">
+    <section id="contact-hero" class="hero" aria-labelledby="contact-title">
       <div class="hero-spec-strip" data-sys="SYS // NET 1 ">
-        <p class="hero-chip">Secure Channels Open</p>
+        <p class="hero-chip" data-contact-i18n="chip">Secure Channels Open</p>
       </div>
 
       <div class="hero-split">
         <div class="hero-split-left">
-          <h1 id="contact-title">Start the <br><span>conversation</span></h1>
-          <p class="lead hero-lead">Have questions about deploying Radova Linux for your institutional repository, digital archives, or library management? Drop us a line.</p>
+          <h1 id="contact-title">
+            <span class="title-main" data-contact-i18n="title1">Start the</span> <br>
+            <span class="title-accent" data-contact-i18n="title2">conversation</span>
+          </h1>
+          <p class="lead hero-lead" data-contact-i18n="lead">Have questions about deploying Radova Linux for your institutional repository, digital archives, or library management? Drop us a line.</p>
 
-          <div class="swiss-ledger" style="margin-top: 2rem;">
+          <div class="swiss-ledger contact-ledger">
             <article class="ledger-item" data-index="01 /">
-              <h3>Direct Email</h3>
-              <p>contact@radova.org</p>
+              <h3 data-contact-i18n="c1.title">Direct Email</h3>
+              <p><a href="mailto:contact@radova.org">contact@radova.org</a></p>
             </article>
             <article class="ledger-item" data-index="02 /">
-              <h3>Matrix</h3>
+              <h3 data-contact-i18n="c2.title">Matrix</h3>
               <p>@admin:matrix.radova.org</p>
             </article>
             <article class="ledger-item" data-index="03 /">
-              <h3>Development</h3>
-              <p>yuros.org/radova-linux</p>
+              <h3 data-contact-i18n="c3.title">Development</h3>
+              <p><a target="_blank" rel="noopener" href="https://yuros.org/radova-linux">yuros.org/radova-linux</a></p>
             </article>
             <article class="ledger-item" data-index="04 /">
-              <h3>Location</h3>
-              <p>South Tangerang, Banten</p>
+              <h3 data-contact-i18n="c4.title">Location</h3>
+              <p data-contact-i18n="c4.desc">South Tangerang, Banten</p>
             </article>
           </div>
         </div>
 
-        <!-- Kolom Kanan: Form dengan Tab & Subject Lengkap -->
         <div class="hero-split-right">
-          <div class="workbench-grid" style="grid-template-columns: 1fr;">
-                <!-- Navigasi Tab -->
-                <div class="tab-nav">
-                  <button type="button" class="tab-btn active" onclick="switchTab('Information', this)">Information</button>
-                  <button type="button" class="tab-btn" onclick="switchTab('Report Bugs', this)">Report Bugs</button>
-                  <button type="button" class="tab-btn" onclick="switchTab('Collaboration', this)">Collaboration</button>
-                </div>
+          <div id="contact-response" class="contact-panel">
+            <div class="tab-nav" role="tablist" aria-label="Inquiry category">
+              <button type="button" role="tab" aria-selected="true" class="tab-btn active" data-category="Information" data-contact-i18n="tab.info">Information</button>
+              <button type="button" role="tab" aria-selected="false" class="tab-btn" data-category="Report Bugs" data-contact-i18n="tab.bugs">Report Bugs</button>
+              <button type="button" role="tab" aria-selected="false" class="tab-btn" data-category="Collaboration" data-contact-i18n="tab.collab">Collaboration</button>
+            </div>
 
-                <!-- Form Kontak -->
-                <form id="contact-form" onsubmit="sendData(event)">
-                  
-                  <!-- Input tersembunyi untuk kategori tab -->
-                  <input type="hidden" id="category" name="category" value="Information">
+            <form id="contact-form">
+              <input type="hidden" id="category" name="category" value="Information">
 
-                  <div style="margin-bottom: 1.5rem;">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required class="form-input">
-                  </div>
-
-                  <div style="margin-bottom: 1.5rem;">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" required class="form-input">
-                  </div>
-
-                  <!-- Dropdown Subject Lengkap Berdasarkan OS & Sistem Radova -->
-                  <div style="margin-bottom: 1.5rem;">
-                    <label for="subject">Subject</label>
-                    
-                    <!-- Subject untuk Tab Information (Default) -->
-                    <select id="subject-info" name="subject" class="tab-content active form-input" required>
-                      <option value="" disabled selected>Select an inquiry topic...</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Memora / Library Management">Memora / Library Management</option>
-                      <option value="Evrocks / Archive Management">Evrocks / Archive Management</option>
-                      <option value="Coretez / DAM">Coretez / DAM</option>
-                      <option value="Linkers / Repository">Linkers / Repository</option>
-                    </select>
-
-                    <!-- Subject untuk Tab Report Bugs -->
-                    <select id="subject-bug" name="subject" class="tab-content form-input" disabled>
-                      <option value="" disabled selected>Select a bug category...</option>
-                      <option value="Installation / Boot Issue">Installation / Boot Issue</option>
-                      <option value="Coretez Plugin Error">Coretez Plugin Error</option>
-                      <option value="Performance / High Memory Usage">Performance / High Memory Usage</option>
-                      <option value="System Security / Vulnerability">System Security / Vulnerability</option>
-                    </select>
-
-                    <!-- Subject untuk Tab Collaboration -->
-                    <select id="subject-collab" name="subject" class="tab-content form-input" disabled>
-                      <option value="" disabled selected>Select a collaboration type...</option>
-                      <option value="Academic Research Partnership">Academic Research Partnership</option>
-                      <option value="Open Source Contribution (Forgejo)">Open Source Contribution (Forgejo)</option>
-                      <option value="Institutional Deployment">Institutional Deployment</option>
-                      <option value="Sponsorship / Funding">Sponsorship / Funding</option>
-                    </select>
-                  </div>
-
-                  <div style="margin-bottom: 2rem;">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="How can we help you build your institutional memory?" required class="form-input" style="resize: vertical;"></textarea>
-                  </div>
-
-                  <!-- Loading Indicator -->
-                  <div id="loading-indicator" style="display: none; margin-bottom: 1rem; color: var(--red-600); font-weight: bold; text-align: center;">
-                    [ TRANSMITTING DATA... ]
-                  </div>
-
-                  <button type="submit" id="submit-btn" class="btn btn-lg btn-primary btn-arrow" style="width: 100%; justify-content: center;">
-                    Send Transmission
-                  </button>
-
-                </form>
-
+              <div class="form-group">
+                <label for="name" data-contact-i18n="form.name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" data-contact-placeholder="form.name.ph" required class="form-input">
               </div>
 
-            </div>
+              <div class="form-group">
+                <label for="email" data-contact-i18n="form.email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" data-contact-placeholder="form.email.ph" required class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label id="subject-label" for="subject-info" data-contact-i18n="form.subject">Subject</label>
+
+                <select id="subject-info" name="subject" class="tab-content active form-input" required>
+                  <option value="" disabled selected data-contact-i18n="opt.info.default">Select an inquiry topic...</option>
+                  <option value="General Inquiry" data-contact-i18n="opt.info.1">General Inquiry</option>
+                  <option value="Memora / Library Management" data-contact-i18n="opt.info.2">Memora / Library Management</option>
+                  <option value="Evrocks / Archive Management" data-contact-i18n="opt.info.3">Evrocks / Archive Management</option>
+                  <option value="Coretez / DAM" data-contact-i18n="opt.info.4">Coretez / DAM</option>
+                  <option value="Linkers / Repository" data-contact-i18n="opt.info.5">Linkers / Repository</option>
+                </select>
+
+                <select id="subject-bug" name="subject" class="tab-content form-input" disabled>
+                  <option value="" disabled selected data-contact-i18n="opt.bug.default">Select a bug category...</option>
+                  <option value="Installation / Boot Issue" data-contact-i18n="opt.bug.1">Installation / Boot Issue</option>
+                  <option value="Coretez Plugin Error" data-contact-i18n="opt.bug.2">Coretez Plugin Error</option>
+                  <option value="Performance / High Memory Usage" data-contact-i18n="opt.bug.3">Performance / High Memory Usage</option>
+                  <option value="System Security / Vulnerability" data-contact-i18n="opt.bug.4">System Security / Vulnerability</option>
+                </select>
+
+                <select id="subject-collab" name="subject" class="tab-content form-input" disabled>
+                  <option value="" disabled selected data-contact-i18n="opt.collab.default">Select a collaboration type...</option>
+                  <option value="Academic Research Partnership" data-contact-i18n="opt.collab.1">Academic Research Partnership</option>
+                  <option value="Open Source Contribution (Forgejo)" data-contact-i18n="opt.collab.2">Open Source Contribution (Forgejo)</option>
+                  <option value="Institutional Deployment" data-contact-i18n="opt.collab.3">Institutional Deployment</option>
+                  <option value="Sponsorship / Funding" data-contact-i18n="opt.collab.4">Sponsorship / Funding</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group-last">
+                <label for="message" data-contact-i18n="form.message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can we help you build your institutional memory?" data-contact-placeholder="form.message.ph" required class="form-input"></textarea>
+              </div>
+
+              <div id="loading-indicator" class="htmx-indicator" role="status" aria-live="polite" data-contact-i18n="form.loading">
+                [ TRANSMITTING DATA... ]
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-lg btn-primary btn-arrow btn-submit-full" data-contact-i18n="form.submit">
+                Send Transmission
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -193,10 +183,10 @@
       <nav class="footer-col" aria-label="Learn About Radova">
         <h3 class="footer-heading" data-i18n="footer.col1">Learn About Radova</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/" data-i18n="nav.about">About</a></li>
-          <li><a href="https://radova.org/about/history" data-i18n="nav.history">History</a></li>
-          <li><a href="https://radova.org/latest/" data-i18n="nav.latest">Latest</a></li>
-          <li><a href="https://radova.org/events" data-i18n="nav.events">Events</a></li>
+          <li><a href="https://radova.org/about/" hx-boost="false" data-i18n="nav.about">About</a></li>
+          <li><a href="https://radova.org/about/history" hx-boost="false" data-i18n="nav.history">History</a></li>
+          <li><a href="https://radova.org/latest/" hx-boost="false" data-i18n="nav.latest">Latest</a></li>
+          <li><a href="https://radova.org/events" hx-boost="false" data-i18n="nav.events">Events</a></li>
         </ul>
       </nav>
 
@@ -205,8 +195,8 @@
         <ul class="footer-links">
           <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
           <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
-          <li><a href="https://radova.org/learns" data-i18n="nav.learning">Learning</a></li>
-          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download" data-i18n="footer.download">Download ISO</a></li>
+          <li><a href="https://radova.org/learns" hx-boost="false" data-i18n="nav.learning">Learning</a></li>
+          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download" hx-boost="false" data-i18n="footer.download">Download ISO</a></li>
         </ul>
       </nav>
 
@@ -221,11 +211,11 @@
       </nav>
 
       <nav class="footer-col" aria-label="Help and Specs">
-        <h3 class="footer-heading" data-i18n="footer.col4">Help &amp; Specs</h3>
+        <h3 class="footer-heading" data-i18n="footer.col4">Help & Specs</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="https://radova.org/about/contact" hx-boost="false" data-i18n="nav.contact">Contact</a></li>
           <li><a href="https://radova.org/#spesifikasi" data-i18n="footer.specs">System Requirements</a></li>
-          <li><a href="https://radova.org/latest/security/" data-i18n="footer.security">Security Advisories</a></li>
+          <li><a href="https://radova.org/latest/security/" hx-boost="false" data-i18n="footer.security">Security Advisories</a></li>
         </ul>
       </nav>
     </div>
@@ -233,7 +223,7 @@
     <div class="footer-bottom">
       <div class="footer-brand-bar">
         <span class="brand-lockup brand-lockup-light">
-          <img src="/assets/logo-white.png" width="28" alt="Radova OS">
+          <img src="/assets/logo-white.png" alt="Radova Logo" width="28">
           <span class="brand-name">RADOVA</span>
         </span>
         <p class="footer-copy" data-i18n="footer.copy">© 2026 yuros.org · Released under the MIT License</p>
@@ -242,9 +232,10 @@
       <a class="footer-top" href="#main" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
-  <script src="https://radova.org/about/assets/contact.js"></script>
-  <script src="https://radova.org/about/assets/site.js"></script>
-  <script src="https://radova.org/about/assets/htmx.min.js"></script>
-  <script src="https://radova.org/about/assets/navbar.js"></script>
+
+  <script src="/assets/htmx.min.js" defer></script>
+  <script src="/assets/site.js?v=7" defer></script>
+  <script src="/assets/navbar.js?v=3" defer></script>
+  <script src="/assets/contact.js?v=1" defer></script>
 </body>
 </html>

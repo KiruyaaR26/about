@@ -1970,6 +1970,10 @@ main #fitur .fitur-matrix article.fitur-card {
   }
 }
 
+nav.footer-col {
+  display: block;
+}
+
 .footer-heading {
   font-family: var(--font-heading);
   font-size: 14px;
@@ -2426,5 +2430,112 @@ button.btn-lang:hover {
 
   .nav-toggle {
     margin-left: 0;
+  }
+}
+
+
+/* ==========================================================================
+   Dark Mode Toggle Button & Official Radova Dark Palette (darkmode.pdf)
+   Background: #0B0711 | Card: #150B52 | Deep Navy: #0E0347
+   Primary Text: #FFFFFF | Secondary Text: #C4C0D4
+   Primary: #A10000 | Hover: #BB080B | CTA Accent: #DB000F | Blue: #0035C6
+   ========================================================================== */
+button.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid rgba(14, 3, 71, 0.18);
+  background: #ffffff;
+  color: #0E0347;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease, transform 140ms ease;
+}
+
+button.btn-theme + button.btn-lang {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  button.btn-theme {
+    margin-left: 0;
+  }
+}
+
+button.btn-theme:hover {
+  border-color: #DB000F;
+  color: #DB000F;
+  background: #F7F6FF;
+}
+
+button.btn-theme:active {
+  transform: scale(0.96);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --navy: #FFFFFF;
+  --red-900: #FFFFFF;
+  --red-700: #BB080B;
+  --red-600: #DB000F;
+  --lavender: #150B52;
+  --white: #0B0711;
+  --muted: #C4C0D4;
+  --line: rgba(196, 192, 212, 0.18);
+}
+
+:root[data-theme="dark"] body {
+  background-color: #0B0711;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .site-header {
+  background: rgba(11, 7, 17, 0.88);
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+:root[data-theme="dark"] .brand-name,
+:root[data-theme="dark"] .nav-list a {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .nav-toggle span {
+  background-color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .dropdown-content {
+  background-color: #150B52;
+  border-color: rgba(196, 192, 212, 0.22);
+}
+
+:root[data-theme="dark"] .dropdown-content a,
+:root[data-theme="dark"] .dropdown-content button.d-content-back {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] button.btn-theme,
+:root[data-theme="dark"] button.btn-lang {
+  background-color: #150B52;
+  border-color: rgba(196, 192, 212, 0.28);
+  color: #F7F6FF;
+}
+
+:root[data-theme="dark"] button.btn-theme:hover,
+:root[data-theme="dark"] button.btn-lang:hover {
+  border-color: #DB000F;
+  color: #FFFFFF;
+  background-color: #0E0347;
+}
+
+@media (max-width: 767px) {
+  :root[data-theme="dark"] .header-menu {
+    background-color: #0B0711;
   }
 }
